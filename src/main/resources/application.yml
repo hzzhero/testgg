@@ -1,0 +1,41 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://39.104.65.152:3306/demo?characterEncoding=utf-8
+    username: root
+    password: Abc123**..
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    platform: mysql
+    initialization-mode: embedded
+    hikari:
+      auto-commit: true
+      minimum-idle: 5
+      maximum-pool-size: 15      
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+  mvc:
+    favicon:
+      enabled: false
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: embedded
+      schema: classpath:schema/schema-${spring.datasource.platform}.sql
+      
+      
+server:
+  servlet:
+    context-path: /
+  port: 80
+  
+logging:
+  level:
+    root: info
+    com.example.demo: debug
+      
+  
